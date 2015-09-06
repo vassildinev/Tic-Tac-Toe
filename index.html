@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Tic-Tac-Toe</title>
+    <link href="https://bootswatch.com/cerulean/bootstrap.css" rel="stylesheet">
+    <link href="https://bootswatch.com/assets/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a id="name-container" style="display: none;border-right: 10px solid black;margin-right: 10px"
+               class="navbar-brand" href="#/my-profile"><strong id="name"></strong></a>
+            <a class="navbar-brand" href="#/home">Home</a>
+            <a class="navbar-brand" href="#/about">About</a>
+            <a class="navbar-brand" href="#/play">Play</a>
+            <a id="log-in" class="navbar-brand" href="#/log-in">Log in</a>
+            <a id="log-out" style="display: none;" class="navbar-brand" href="#/home">Log out</a>
+            <a id="sign-up" class="navbar-brand" href="#/sign-up">Sign up</a>
+        </div>
+    </div>
+</nav>
+<div id="content"></div>
+
+<script src="js/lib/system.js"></script>
+<script src="js/lib/parse.js"></script>
+<script>
+    Parse.initialize("CyJjLPYniA8jdRaiyl1GbqpgFHfdQNzUozqaOjSz", "jWDymlYMA3ANJylxXJADtzVocJewfYA83lGCe3MG");
+    System.config({
+        transpiler: "babel",
+        babelOptions: {
+            optional: [
+                "runtime"
+            ]
+        },
+
+        map: {
+            babel: 'js/lib/browser.js',
+            jquery: 'js/lib/jquery.js'
+        }
+    });
+
+    System.import('js/source/app.js');
+</script>
+
+<script id="profile-template" type="text/x-handlebars-template">
+    <div id="user">
+        <div style="vertical-align-middle;" id=user-container>
+            <h1 style="text-align:center;"><strong>{{username}}</strong></h1>
+            <hr/>
+            <h3 style="text-align:center;">Your stats:</h3>
+            <ul>
+                <li><strong>Total games played: {{total}}</strong></li>
+                <li><strong>Wins: {{wins}}</strong></li>
+                <li><strong>Losses: {{losses}}</strong></li>
+                <li><strong>Draws: {{draws}}</strong></li>
+            </ul>
+        </div>
+    </div>
+</script>
+</body>
+</html>
